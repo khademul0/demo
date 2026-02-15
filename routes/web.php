@@ -2,6 +2,8 @@
 
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\demo;
+use Symfony\Component\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [demo::class, 'index']);
+Route::get('/about', [demo::class, 'about']);
+Route::get('/courses', [demo::class, 'course']);
