@@ -1,28 +1,28 @@
 @extends('layouts.main')
 @push('title')
-<title>form</title>
+<title>
+    Admin form
+</title>
+
 @endpush
-
-
-
 @section('main-section')
-
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
 
             <div class="card shadow">
                 <div class="card-header text-center">
-                    <h4>User Registration</h4>
+                    <h4>admin Registration</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/')}}/register" method="post">
+                    <form action="{{url('/')}}/aregi" method="post">
                         @csrf
 
+                        <x-input type="text" name="name" lable="please enter your name:" />
+                        <x-input type="text" name="email" lable="please enter your email:" />
+                        <x-input type="password" name="password" lable="please enter your password:" />
+                        <x-input type="password" name="confirm_password" lable="confirm your password:" />
 
-                        <x-input type="text" name="name" lable="please enter your name" />
-                        <x-input type="text" name="email" lable="please enter your email" />
-                        <x-input type="password" name="password" lable="please enter your password" />
 
 
 
@@ -39,5 +39,4 @@
         </div>
     </div>
 </div>
-
 @endsection

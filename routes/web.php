@@ -4,6 +4,7 @@ use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\demo;
 use App\Http\Controllers\userregistration;
+use App\Http\Controllers\adminregis;
 use Symfony\Component\Routing\Route as RoutingRoute;
 
 /*
@@ -22,3 +23,6 @@ Route::get('/about', [demo::class, 'about']);
 Route::get('/courses', [demo::class, 'course']);
 route::get('/register', [userregistration::class, 'rform']);
 route::post('/register', [userregistration::class, 'register']);
+
+route::get('/aregi', [adminregis::class, 'aform']);
+route::post('/aregi', [adminregis::class, 'aregister']);

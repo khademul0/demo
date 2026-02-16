@@ -13,6 +13,7 @@ class userregistration extends Controller
 
     public function register(request $request)
     {
+        echo "<pre>";
         return  print_r($request->all());
     }
 }
