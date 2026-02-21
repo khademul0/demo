@@ -1,28 +1,38 @@
 <?php
 
-use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\demo;
 use App\Http\Controllers\userregistration;
 use App\Http\Controllers\adminregis;
-use Symfony\Component\Routing\Route as RoutingRoute;
+use App\Http\Controllers\PlayerController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
 Route::get('/', [demo::class, 'index']);
 Route::get('/about', [demo::class, 'about']);
 Route::get('/courses', [demo::class, 'course']);
-route::get('/register', [userregistration::class, 'rform']);
-route::post('/register', [userregistration::class, 'register']);
 
-route::get('/aregi', [adminregis::class, 'aform']);
-route::post('/aregi', [adminregis::class, 'aregister']);
+Route::get('/register', [userregistration::class, 'rform']);
+Route::post('/register', [userregistration::class, 'register']);
+
+Route::get('/aregi', [adminregis::class, 'aform']);
+Route::post('/aregi', [adminregis::class, 'aregister']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Player Routes (Professional Structure)
+|--------------------------------------------------------------------------
+*/
+
+// Show Form
+Route::get('/players/register', [PlayerController::class, 'create'])
+    ->name('players.register');
+
+// Store Data
+Route::post('/players/register', [PlayerController::class, 'store'])
+    ->name('players.store');

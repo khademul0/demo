@@ -1,4 +1,7 @@
 <div class="mb-3">
-    <label class="form-label">{{$lable}}</label>
-    <input type="{{$type}}" class="form-control" name="{{$name}}" required>
+    @if($label)
+    <label class="form-label">{{ $label }}</label>
+    @endif
+
+    <input type="{{ $type }}" name="{{ $name }}" class="form-control" value="{{ old($name) }}">
 </div>

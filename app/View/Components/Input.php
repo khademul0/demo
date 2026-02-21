@@ -8,25 +8,17 @@ use Illuminate\View\Component;
 
 class Input extends Component
 {
-    /**
-     * Create a new component instance.
-     */
     public $type;
-    
     public $name;
-    
-    public $lable;
+    public $label;
 
-    public function __construct($type,$name,$lable)
+    public function __construct($type = 'text', $name = '', $label = '')
     {
-        $this->type=$type;
-        $this->name=$name;
-        $this->lable=$lable;
+        $this->type = $type;
+        $this->name = $name;
+        $this->label = $label;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View|Closure|string
     {
         return view('components.input');

@@ -18,10 +18,10 @@
                     <form action="{{url('/')}}/aregi" method="post">
                         @csrf
 
-                        <x-input type="text" name="name" lable="please enter your name:" />
-                        <x-input type="text" name="email" lable="please enter your email:" />
-                        <x-input type="password" name="password" lable="please enter your password:" />
-                        <x-input type="password" name="confirm_password" lable="confirm your password:" />
+                        <x-input type="text" name="name" label="please enter your name:" />
+                        <x-input type="text" name="email" label="please enter your email:" />
+                        <x-input type="password" name="password" label="please enter your password:" />
+                        <x-input type="password" name="confirm_password" label="confirm your password:" />
 
 
 
