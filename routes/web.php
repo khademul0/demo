@@ -33,6 +33,11 @@ Route::post('/aregi', [adminregis::class, 'aregister']);
 Route::get('/players/register', [PlayerController::class, 'create'])
     ->name('players.register');
 
+//for view Data
+Route::get('/players/view', [PlayerController::class, 'view'])
+    ->name('playres.view');
+
+
 // Store Data
 Route::post('/players/register', [PlayerController::class, 'store'])
     ->name('players.store');

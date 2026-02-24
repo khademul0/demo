@@ -47,8 +47,12 @@ class PlayerController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()
-            ->route('players.register')
-            ->with('success', 'Player Registered Successfully!');
+        return redirect('players/view');
+    }
+
+    public function view()
+    {
+        $players = Player::latest()->get();
+        return view('players-view', compact('players'));
     }
 }
