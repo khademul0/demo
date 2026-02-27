@@ -55,4 +55,13 @@ class PlayerController extends Controller
         $players = Player::latest()->get();
         return view('players-view', compact('players'));
     }
+
+    public function delete($id)
+{
+    $player = Player::findOrFail($id);
+    $player->delete();
+
+    return redirect()->route('playres.view')
+        ->with('success', 'Player deleted successfully');
+}
 }

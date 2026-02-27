@@ -41,3 +41,7 @@ Route::get('/players/view', [PlayerController::class, 'view'])
 // Store Data
 Route::post('/players/register', [PlayerController::class, 'store'])
     ->name('players.store');
+
+// delete Data
+Route::get('/players/delete/{id}', [PlayerController::class, 'delete'])
+    ->name('players.delete');
