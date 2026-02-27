@@ -35,7 +35,7 @@ Route::get('/players/register', [PlayerController::class, 'create'])
 
 //for view Data
 Route::get('/players/view', [PlayerController::class, 'view'])
-    ->name('playres.view');
+    ->name('players.view');
 
 
 // Store Data
@@ -45,3 +45,11 @@ Route::post('/players/register', [PlayerController::class, 'store'])
 // delete Data
 Route::get('/players/delete/{id}', [PlayerController::class, 'delete'])
     ->name('players.delete');
+
+// Show edit form
+Route::get('/players/edit/{id}', [PlayerController::class, 'edit'])
+    ->name('players.edit');
+
+// Update player
+Route::post('/players/update/{id}', [PlayerController::class, 'update'])
+    ->name('players.update');

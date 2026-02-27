@@ -57,11 +57,41 @@ class PlayerController extends Controller
     }
 
     public function delete($id)
-{
-    $player = Player::findOrFail($id);
-    $player->delete();
+    {
+        $player = Player::findOrFail($id);
+        $player->delete();
 
-    return redirect()->route('playres.view')
-        ->with('success', 'Player deleted successfully');
-}
+        return redirect()->route('players.view')
+            ->with('success', 'Player deleted successfully');
+    }
+
+    public function edit($id)
+    {
+        $player = Player::findOrFail($id);
+        return view('players-edit', compact('player'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $player = Player::findOrFail($id);
+
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => "required|email|unique:players,email,$id",
+            'phone' => 'required|string|max:20',
+            'dob' => 'required|date',
+            'gender' => 'required|string',
+            'address' => 'required|string',
+            'city' => 'required|string',
+            'country' => 'required|string',
+            'position' => 'required|string',
+            'jersey_number' => 'required|numeric',
+        ]);
+
+        $player->update($request->all());
+
+        return redirect()->route('players.view')
+            ->with('success', 'Player updated successfully');
+    }
 }

@@ -44,10 +44,13 @@
                             <td>{{ $player->country }}</td>
                             <td>{{ $player->position }}</td>
                             <td>{{ $player->jersey_number }}</td>
-                            <td>{{ $player->emali }}</td>
-                            <td>
-                                <a href="{{ route('players.delete', $player->id) }}">
-                                    <button class="btn btn-danger btn-sm">Delete</button>
+                            <td class="text-center">
+                                <a href="{{ route('players.edit', $player->id) }}" class="btn btn-primary btn-sm">
+                                    Edit
+                                </a>
+
+                                <a href="{{ route('players.delete', $player->id) }}" class="btn btn-danger btn-sm">
+                                    Delete
                                 </a>
                             </td>
 
